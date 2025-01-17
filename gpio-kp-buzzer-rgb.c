@@ -1,13 +1,13 @@
 #include "pico/stdlib.h"
-// #include "gpio.h"
-// #include "buzzer.h"
+#include "gpio.h"
+#include "buzzer.h"
 #include "keypad.h"
 #include <stdio.h>
 
 int main() {
     stdio_init_all(); // Inicializa comunicação serial
     init_gpio();      // Inicializa LEDs
-    init_buzzer();    // Inicializa Buzzer
+    pwm_init_buzzer(BUZZER_PIN); // Inicializar o Buzzer
     init_keypad();    // Inicializa teclado matricial
 
     printf("Sistema iniciado. Pressione teclas no teclado matricial.\n");
@@ -22,11 +22,10 @@ int main() {
 
         // Controle do Buzzer
         if (key == '#') {
-            buzzer_on(2000); // Liga o buzzer com 2 kHz
-        } else {
-            buzzer_off();    // Desliga o buzzer
-        }
 
+            beep(BUZZER_PIN, 500); // Liga o buzzer com duração de 5ms
+ 
+        }
         // Log para depuração
         if (key) {
             printf("Tecla pressionada: %c\n", key);

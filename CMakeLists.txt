@@ -49,7 +49,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(gpio-kp-buzzer-rgb gpio-kp-buzzer-rgb.c )
+add_executable(gpio-kp-buzzer-rgb gpio-kp-buzzer-rgb.c buzzer.c keypad.c gpio.c )
 
 pico_set_program_name(gpio-kp-buzzer-rgb "gpio-kp-buzzer-rgb")
 pico_set_program_version(gpio-kp-buzzer-rgb "0.1")
@@ -60,7 +60,10 @@ pico_enable_stdio_usb(gpio-kp-buzzer-rgb 0)
 
 # Add the standard library to the build
 target_link_libraries(gpio-kp-buzzer-rgb
-        pico_stdlib)
+        pico_stdlib
+        hardware_pwm
+        hardware_clocks
+        )
 
 # Add the standard include files to the build
 target_include_directories(gpio-kp-buzzer-rgb PRIVATE
