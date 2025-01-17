@@ -1,61 +1,38 @@
 #include "pico/stdlib.h"
+// #include "gpio.h"
+// #include "buzzer.h"
+#include "keypad.h"
 #include <stdio.h>
 
-#define ROWS 4
-#define COLS 4
-
-// Configuração do teclado matricial
-const uint row_pins[ROWS] = {26, 22, 21, 20}; // Pinos das linhas
-const uint col_pins[COLS] = {19, 18, 17, 16}; // Pinos das colunas
-const char keys[ROWS][COLS] = {
-    {'1', '2', '3', 'A'},
-    {'4', '5', '6', 'B'},
-    {'7', '8', '9', 'C'},
-    {'*', '0', '#', 'D'}
-};
-
-void keypad_init() {
-    for (int i = 0; i < ROWS; i++) {
-        gpio_init(row_pins[i]);
-        gpio_set_dir(row_pins[i], GPIO_OUT);
-        gpio_put(row_pins[i], 1); // Linha desativada
-    }
-    for (int j = 0; j < COLS; j++) {
-        gpio_init(col_pins[j]);
-        gpio_set_dir(col_pins[j], GPIO_IN);
-        gpio_pull_up(col_pins[j]);
-    }
-}
-
-char keypad_scan() {
-    for (int i = 0; i < ROWS; i++) {
-        gpio_put(row_pins[i], 0); // Ativa a linha
-        for (int j = 0; j < COLS; j++) {
-            if (gpio_get(col_pins[j]) == 0) {
-                sleep_ms(50); // Debouncing
-                if (gpio_get(col_pins[j]) == 0) {
-                    gpio_put(row_pins[i], 1); // Desativa a linha
-                    return keys[i][j];
-                }
-            }
-        }
-        gpio_put(row_pins[i], 1); // Desativa a linha
-    }
-    return '\0'; // Nenhuma tecla pressionada
-}
-
 int main() {
-    stdio_init_all();
-    keypad_init();
+    stdio_init_all(); // Inicializa comunicação serial
+    init_gpio();      // Inicializa LEDs
+    init_buzzer();    // Inicializa Buzzer
+    init_keypad();    // Inicializa teclado matricial
 
-    printf("Iniciando...\n");
+    printf("Sistema iniciado. Pressione teclas no teclado matricial.\n");
 
-    while (true) {
-        char key = keypad_scan();
-        if (key != '\0') {
+    while (1) {
+        char key = get_key(); // Captura a tecla pressionada
+
+        // Controle dos LEDs
+        gpio_put(LED_GREEN, (key == 'A' || key == 'D')); // A ou D -> LED verde
+        gpio_put(LED_BLUE, (key == 'B' || key == 'D'));  // B ou D -> LED azul
+        gpio_put(LED_RED, (key == 'C' || key == 'D'));   // C ou D -> LED vermelho
+
+        // Controle do Buzzer
+        if (key == '#') {
+            buzzer_on(2000); // Liga o buzzer com 2 kHz
+        } else {
+            buzzer_off();    // Desliga o buzzer
+        }
+
+        // Log para depuração
+        if (key) {
             printf("Tecla pressionada: %c\n", key);
         }
-        sleep_ms(100);
+
+        sleep_ms(50); // Pequeno atraso para evitar leituras repetidas
     }
 
     return 0;
