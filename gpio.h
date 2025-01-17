@@ -8,7 +8,7 @@
 #define LED_GREEN 11
 #define LED_BLUE 12
 
-void led_init();
+void init_gpio();
 void led_on(char _key);
 
 #endif

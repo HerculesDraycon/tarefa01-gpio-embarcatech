@@ -1,7 +1,7 @@
 #include "gpio.h"
 
 // Inicialização dos pinos dos leds
-void led_init() {
+void init_gpio() {
     gpio_init(LED_RED);
     gpio_set_dir(LED_RED, GPIO_OUT);
 
