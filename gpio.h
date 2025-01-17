@@ -9,5 +9,6 @@
 #define LED_BLUE 12
 
 void led_init();
+void led_on(char _key);
 
 #endif
