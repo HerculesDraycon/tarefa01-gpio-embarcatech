@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/gpio-kp-buzzer-rgb.uf2'
+elf = 'build/gpio-kp-buzzer-rgb.elf'
