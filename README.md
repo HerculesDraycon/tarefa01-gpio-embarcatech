@@ -107,10 +107,15 @@ Isso garante compatibilidade com o teclado real, permitindo a detecção precisa
 ## Considerações Finais (Equipe Subgrupo 5)
 
 **Hércules Sampaio** - *Líder gerente de projeto*
+
 **Keven Christian** - *Teclado matricial*   
+
 **Giselle Oliveira** - *Teclado matricial*
+
 **Marlon Santos** - *GPIO LEDs*   
+
 **Jadson Sobrinho** - *Buzzer*   
+
 **Wilton Lacerda** - *Video apresentação*
 
 ## Link Video
