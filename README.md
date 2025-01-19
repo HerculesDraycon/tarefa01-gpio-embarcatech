@@ -104,9 +104,8 @@ Isso garante compatibilidade com o teclado real, permitindo a detecção precisa
 
 ---
 
-## Considerações Finais
+## Considerações Finais (Equipe Subgrupo 5)
 
-Equipe subgrupo 5
 **Hércules Sampaio** - *Líder gerente de projeto*
 **Keven Christian** - *Teclado matricial*   
 **Giselle Oliveira** - *Teclado matricial*
