@@ -1,10 +1,11 @@
 #include "keypad.h"
 
 // Pinos das linhas e colunas
-const uint gpio_rows[ROWS] = {8, 7, 6, 5};
-const uint gpio_cols[COLS] = {4, 3, 2, 28};
+const uint gpio_rows[ROWS] = {18, 19, 20, 4};
+const uint gpio_cols[COLS] = {9, 8, 16, 17};
 
 // Mapeamento do teclado matricial
+// Cols e Rows alterados para funcionamento do teclado fisico na BitDogLab - Wilton
 char keys[ROWS][COLS] = {
     {'1', '2', '3', 'A'},
     {'4', '5', '6', 'B'},
