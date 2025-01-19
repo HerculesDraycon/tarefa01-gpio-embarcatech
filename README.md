@@ -108,7 +108,7 @@ Isso garante compatibilidade com o teclado real, permitindo a detecção precisa
 
 **Hércules Sampaio** - *Líder gerente de projeto*
 
-**Keven Christian** - *Teclado matricial*   
+**Keven Christian** - *Teclado matricial, Documentação*   
 
 **Giselle Oliveira** - *Teclado matricial*
 
