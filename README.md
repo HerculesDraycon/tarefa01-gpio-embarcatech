@@ -105,7 +105,8 @@ Isso garante compatibilidade com o teclado real, permitindo a detecção precisa
 ---
 
 ## Considerações Finais
-- Equipe subgrupo 5:
+
+Equipe subgrupo 5:
   **Hércules Sampaio** - *Líder gerente de projeto*
   **Keven Christian** - *Teclado matricial*   
   **Giselle Oliveira** - *Teclado matricial*
@@ -113,4 +114,5 @@ Isso garante compatibilidade com o teclado real, permitindo a detecção precisa
   **Jadson Sobrinho** - *Buzzer*   
   **Wilton Lacerda** - *Video apresentação*
 
-Este projeto foi testado em um ambiente físico com teclado matricial real conectado à porta de expansão **P1** via o kit da **BitDogLab**. Ele pode ser expandido para incluir funcionalidades adicionais, como a configuração de padrões de som ou comportamento específico para combinações de teclas.
+## Link Video
+https://www.youtube.com/watch?v=wHV8VkldF6s
