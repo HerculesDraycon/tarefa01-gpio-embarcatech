@@ -117,6 +117,3 @@ Isso garante compatibilidade com o teclado real, permitindo a detecção precisa
 **Jadson Sobrinho** - *Buzzer*   
 
 **Wilton Lacerda** - *Video apresentação*
-
-## Link Video
-https://www.youtube.com/watch?v=wHV8VkldF6s
